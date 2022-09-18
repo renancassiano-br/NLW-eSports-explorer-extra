@@ -144,7 +144,7 @@ footer img {
 /* 
 # AJUSTES ESPECÍFICOS DE ELEMENTOS POR 'ID' OU 'CLASS'. 
 */
-#my-games img {
+#movies img {
   width: 90px;
   /* para cantos arredondados */
   border-radius: 8px;
