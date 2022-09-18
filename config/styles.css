@@ -18,7 +18,7 @@ body {
   background-repeat: no-repeat;
   background-color: #121214;
   /* ocultando barras de rolagem */
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
