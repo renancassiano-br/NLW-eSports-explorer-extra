@@ -144,7 +144,8 @@ footer img {
 /* 
 # AJUSTES ESPECÍFICOS DE ELEMENTOS POR 'ID' OU 'CLASS'. 
 */
-#movies img {
+#movies img,
+#series img {
   width: 90px;
   /* para cantos arredondados */
   border-radius: 8px;
@@ -152,13 +153,6 @@ footer img {
   border: 1px solid #443e54;
 
   transition: transform 3s;
-}
-
-#channels img {
-  /* forma um circulo ao arredondar a bordar */
-  border-radius: 50%;
-  width: 70px;
-  border: 1px solid #443e54;
 }
 
 #social img {
@@ -200,11 +194,11 @@ main section ul li {
   animation: animeCardsFromLeft .9s .3s backwards;
 } */
 
-#my-games ul li {
+#movies ul li {
   animation: animeCardsFromRight .9s .3s backwards;
 }
 
-#channels ul li {
+#series ul li {
   animation: animeCardsFromLeft .9s .6s backwards;
 }
 
@@ -271,5 +265,4 @@ footer {
   100% {
     opacity: 1;
   }
-
 }
