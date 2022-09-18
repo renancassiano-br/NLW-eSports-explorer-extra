@@ -1,0 +1,276 @@
+/* resets */
+* {
+  margin: 0;
+  padding: 0;
+  /* Alterando a contagem de tamanho a partir da borda */
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+/* geral */
+body {
+  background-image: url(./assets/bg.jpg);
+  background-position: top center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #121214;
+  /* ocultando barras de rolagem */
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 160%;
+}
+
+header {
+  padding-top: 32px;
+  /* 
+  pré-reserva de espaço para o elemento, usando a função 'calc()'.
+  cal(expressão)
+  cal(tamanho_div + padding)
+  */
+  height: calc(120px + 32px);
+
+  /* para alinhar ao centro quando possuir propriedades de texto, isso inclui as imagens. */
+  /* text-align: center; */
+}
+
+header div {
+  width: 120px;
+
+  /* Para alinhar itens sem propriedades de texto. exemplo a 'div' */
+  margin: auto;
+
+  /* borda multi cor */
+  background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+  border-radius: 50%;
+  padding: 4px;
+
+  display: flex;
+
+  /* trabalhando em conjunto com o 'hover' na trasição */
+  transition: transform .3s;
+}
+
+/* efeito ao passar o mouse por cima. */
+header div:hover {
+  transform: scale(1.1);
+}
+
+header div img {
+  /* Ajustando o 'width' para ficar relativo ao tamanho do 'div' que ele está dentro */
+  width: 100%;
+  border-radius: 50%;
+}
+
+main {
+  max-width: 580px;
+  /* tamanho quando a tela for menor que 'max-width' */
+  width: 90%;
+  /* centralizando */
+  margin: 32px auto;
+
+  /* formas para espaçamento de itens. */
+  /* display: flex;
+  flex-direction: column;
+  gap: 24px; */
+
+  display: grid;
+  gap: 24px;
+}
+
+section {
+  color: white;
+
+  /* Para adicionar gradiente na cor */
+  background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+  padding-top: 4px;
+  border-radius: 10px;
+}
+
+section div {
+  background-color: #2a2634;
+  padding: 32px;
+  padding-top: 24px;
+  border-radius: 8px;
+
+  /* Adicionar borda ao top para cor única. */
+  /* border-top: 4px solid red; */
+}
+
+section h2 {
+  letter-spacing: -0.47px;
+}
+
+section p {
+  color: #A1A1AA;
+  letter-spacing: -0.18px;
+}
+
+section ul {
+  /* ajusta o posicionamento do conteúdo que está dentro da caixa-mãe UL 
+  'gap' = é o espaço entre um elemento e outro*/
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+
+  /* direcionar novos elementos para baixo quando atingir o limite do container */
+  flex-wrap: wrap;
+}
+
+/* Efeito de transição nos cards das seções */
+section ul li {
+  transition: transform .3s;
+}
+
+section ul li:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  color: #A1A1AA;
+  text-align: center;
+}
+
+footer img {
+  width: 32px;
+}
+
+/* 
+# AJUSTES ESPECÍFICOS DE ELEMENTOS POR 'ID' OU 'CLASS'. 
+*/
+#my-games img {
+  width: 90px;
+  /* para cantos arredondados */
+  border-radius: 8px;
+
+  border: 1px solid #443e54;
+
+  transition: transform 3s;
+}
+
+#channels img {
+  /* forma um circulo ao arredondar a bordar */
+  border-radius: 50%;
+  width: 70px;
+  border: 1px solid #443e54;
+}
+
+#social img {
+  border-radius: 50%;
+  width: 32px;
+  border: 1px solid #443e54;
+}
+
+/* ANIMAÇÃO */
+
+/* aplicando a animação aos elementos desejados. */
+header div {
+  /* adiciona a animação já carregando as propriedades de inicio (backwards) e espera '1s' para começar a animação */
+  animation: animeHeader .9s .1s backwards;
+}
+
+/* main section {
+  animation: animeCardsFromLeft .7s backwards;
+} */
+
+/* Animando por elemento filho com delay, seguindo as propriedades anteriores */
+main section:nth-child(1) {
+  animation: animeCardsFromLeft .7s backwards;
+  animation-delay: 0;
+}
+
+main section:nth-child(2) {
+  animation: animeCardsFromRight .7s backwards;
+  animation-delay: .3s;
+}
+
+main section:nth-child(3) {
+  animation: animeCardsFromLeft .7s backwards;
+  animation-delay: .6s;
+}
+
+/* 
+main section ul li {
+  animation: animeCardsFromLeft .9s .3s backwards;
+} */
+
+#my-games ul li {
+  animation: animeCardsFromRight .9s .3s backwards;
+}
+
+#channels ul li {
+  animation: animeCardsFromLeft .9s .6s backwards;
+}
+
+#social ul li {
+  animation: animeCardsFromRight .9s .9s backwards;
+}
+
+footer {
+  animation: animeFooter .9s 1s backwards;
+}
+
+/* Definindo qual o efeito da animação */
+/* animação 1 - em diagonal da esquerda para direita e de cima para baixo.*/
+@keyframes animeHeader {
+
+  /* de onde vai: 0%*/
+  from {
+    opacity: 0;
+    /* transform: translateY(-50px); */
+    /* transform: translateX(-500px); */
+    transform: translate(-500px, -100px);
+  }
+
+  /* até chegar em: 100%*/
+  to {
+    opacity: 1;
+    /* transform: translateY(0); */
+    /* transform: translateX(0); */
+    transform: translate(0);
+  }
+}
+
+/* animação 2 - da esquerda para direita*/
+@keyframes animeCardsFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* animação 3 - da direita para esquerda*/
+@keyframes animeCardsFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes animeFooter {
+  0% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
