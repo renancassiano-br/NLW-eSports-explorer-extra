@@ -87,10 +87,12 @@ section {
   color: white;
 
   /* Para adicionar gradiente na cor */
-  background-image: linear-gradient(90deg, #0000ff 0%, #ff0000 100%);
+  /* background-image: linear-gradient(90deg, #0000ff 0%, #ff0000 100%); */
 
   padding-top: 4px;
   border-radius: 10px;
+  background: linear-gradient(90deg, red, green, blue);
+  animation: rgb 3s linear infinite;
 }
 
 section div {
@@ -265,5 +267,35 @@ footer {
 
   100% {
     opacity: 1;
+  }
+}
+
+/* TESTE DE ANIMAÇÃO */
+header div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, .5);
+  overflow: hidden;
+}
+
+header div::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(red, green, blue);
+  animation: rgb 3s linear infinite;
+}
+
+header div img {
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes rgb {
+  100% {
+    filter: hue-rotate(360deg);
   }
 }
