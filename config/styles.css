@@ -207,6 +207,7 @@ main section ul li {
 }
 
 footer {
+  padding-bottom: 32px;
   animation: animeFooter .9s 1s backwards;
 }
 
